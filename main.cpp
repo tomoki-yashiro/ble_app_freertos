@@ -255,7 +255,7 @@ static void services_init(void)
 
     // Heart Rate Service.
     uint8_t body_sensor_location = BLE_HRS_BODY_SENSOR_LOCATION_FINGER;
-    ble_hrs_init_t     hrs_init;
+    ble_hrs_init_t hrs_init;
 
     memset(&hrs_init, 0, sizeof(hrs_init));
     hrs_init.evt_handler                 = NULL;
@@ -266,12 +266,12 @@ static void services_init(void)
     APP_ERROR_CHECK(ble_hrs_init(&m_hrs, &hrs_init));
 
     // Battery Service.
-    ble_bas_init_t     bas_init;
+    ble_bas_init_t bas_init;
 
     memset(&bas_init, 0, sizeof(bas_init));
-    bas_init.bl_rd_sec        = SEC_OPEN;
-    bas_init.bl_cccd_wr_sec   = SEC_OPEN;
-    bas_init.bl_report_rd_sec = SEC_OPEN;
+    bas_init.bl_rd_sec            = SEC_OPEN;
+    bas_init.bl_cccd_wr_sec       = SEC_OPEN;
+    bas_init.bl_report_rd_sec     = SEC_OPEN;
     bas_init.evt_handler          = NULL;
     bas_init.support_notification = true;
     bas_init.p_report_ref         = NULL;
@@ -279,7 +279,7 @@ static void services_init(void)
     APP_ERROR_CHECK(ble_bas_init(&m_bas, &bas_init));
 
     // Device Information Service
-    ble_dis_init_t     dis_init;
+    ble_dis_init_t dis_init;
 
     memset(&dis_init, 0, sizeof(dis_init));
     ble_srv_ascii_to_utf8(&dis_init.manufact_name_str,
@@ -617,11 +617,13 @@ int main(void)
     }
 }
 
+extern "C"
 void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
 {
     app_error_handler(DEAD_BEEF, line_num, p_file_name);
 }
 
+extern "C"
 void vApplicationIdleHook(void)
 {
 #if NRF_LOG_ENABLED

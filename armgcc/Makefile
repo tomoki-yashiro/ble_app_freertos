@@ -12,7 +12,7 @@ SOFTDEVICE	?= $(SDK_ROOT)/components/softdevice/s132/hex/s132_nrf52_6.1.0_softde
 
 # Source files common to all targets
 SRC_FILES += \
-  $(PROJ_DIR)/main.c \
+  $(PROJ_DIR)/main.cpp \
   $(SDK_ROOT)/components/ble/ble_advertising/ble_advertising.c \
   $(SDK_ROOT)/components/ble/ble_services/ble_bas/ble_bas.c \
   $(SDK_ROOT)/components/ble/ble_services/ble_dis/ble_dis.c \
