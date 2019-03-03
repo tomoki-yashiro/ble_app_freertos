@@ -13,6 +13,7 @@ SOFTDEVICE	?= $(SDK_ROOT)/components/softdevice/s132/hex/s132_nrf52_6.1.0_softde
 # Source files common to all targets
 SRC_FILES += \
   $(PROJ_DIR)/main.cpp \
+  $(PROJ_DIR)/timeslot_advertiser.c \
   $(SDK_ROOT)/components/ble/ble_advertising/ble_advertising.c \
   $(SDK_ROOT)/components/ble/ble_services/ble_bas/ble_bas.c \
   $(SDK_ROOT)/components/ble/ble_services/ble_dis/ble_dis.c \
@@ -91,7 +92,7 @@ SRC_FILES += \
   $(SDK_ROOT)/integration/nrfx/legacy/nrf_drv_uart.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_clock.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_gpiote.c \
-  $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_power_clock.c \
+  $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_power.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_uart.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_uarte.c \
   $(SDK_ROOT)/modules/nrfx/drivers/src/prs/nrfx_prs.c \
@@ -133,7 +134,6 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/ble/nrf_ble_qwr \
   $(SDK_ROOT)/components/ble/peer_manager \
   $(SDK_ROOT)/components/boards \
-  $(SDK_ROOT)/components/drivers_nrf/usbd \
   $(SDK_ROOT)/components/libraries/atomic \
   $(SDK_ROOT)/components/libraries/atomic_fifo \
   $(SDK_ROOT)/components/libraries/atomic_flags \
@@ -212,10 +212,8 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/nfc/ndef/text \
   $(SDK_ROOT)/components/nfc/ndef/uri \
   $(SDK_ROOT)/components/nfc/t2t_lib \
-  $(SDK_ROOT)/components/nfc/t2t_lib/hal_t2t \
   $(SDK_ROOT)/components/nfc/t2t_parser \
   $(SDK_ROOT)/components/nfc/t4t_lib \
-  $(SDK_ROOT)/components/nfc/t4t_lib/hal_t4t \
   $(SDK_ROOT)/components/nfc/t4t_parser/apdu \
   $(SDK_ROOT)/components/nfc/t4t_parser/cc_file \
   $(SDK_ROOT)/components/nfc/t4t_parser/hl_detection_procedure \

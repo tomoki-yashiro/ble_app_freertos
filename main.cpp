@@ -515,16 +515,14 @@ static void advertising_init(void)
     init.advdata.name_type               = BLE_ADVDATA_FULL_NAME;
     init.advdata.include_appearance      = true;
     init.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-    init.advdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
+    init.advdata.uuids_complete.uuid_cnt = ARRAY_SIZE(m_adv_uuids);
     init.advdata.uuids_complete.p_uuids  = m_adv_uuids;
-
-    init.config.ble_adv_fast_enabled  = true;
-    init.config.ble_adv_fast_interval = MSEC_TO_UNITS(20, UNIT_0_625_MS);
-    init.config.ble_adv_fast_timeout  = MSEC_TO_UNITS(30000, UNIT_10_MS);
-
-    init.config.ble_adv_slow_enabled  = true;
-    init.config.ble_adv_slow_interval = MSEC_TO_UNITS(417.5, UNIT_0_625_MS);
-    init.config.ble_adv_slow_timeout  = 0;
+    init.config.ble_adv_fast_enabled     = true;
+    init.config.ble_adv_fast_interval    = MSEC_TO_UNITS(20, UNIT_0_625_MS);
+    init.config.ble_adv_fast_timeout     = MSEC_TO_UNITS(30000, UNIT_10_MS);
+    init.config.ble_adv_slow_enabled     = true;
+    init.config.ble_adv_slow_interval    = MSEC_TO_UNITS(417.5, UNIT_0_625_MS);
+    init.config.ble_adv_slow_timeout     = 0;
 
     init.evt_handler = on_adv_evt;
 
